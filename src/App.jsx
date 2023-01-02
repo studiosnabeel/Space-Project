@@ -3,6 +3,7 @@ import Profile from "./Components/Profile";
 import Rockets from "./Components/Rockets";
 import Missions from "./Components/Missions";
 import { Routes,Route } from "react-router-dom";
+import { Dragons } from "./Components/Dragons";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/rockets' element={<Rockets/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/missions' element={<Missions/>}/>
+        <Route path='/dragons' element={<Dragons/>}/>
       </Routes>
     </>
   );
