@@ -29,6 +29,7 @@ export const getMissionsData = createAsyncThunk('missions/getMissionsData', asyn
     };
     newMissionsArray.push(newMission);
   });
+  console.log(newMissionsArray);
   return newMissionsArray;
 });
 
