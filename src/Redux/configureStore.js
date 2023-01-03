@@ -10,3 +10,4 @@ export default configureStore({
     missions: missionReducer
   },
 });
+
