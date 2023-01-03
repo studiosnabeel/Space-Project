@@ -7,6 +7,3 @@ export default configureStore({
     rockets: rocketSlice,
   },
 });
-
-
-
