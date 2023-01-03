@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable camelcase */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const ROCKET_URL = 'https://api.spacexdata.com/v3/rockets';
@@ -16,7 +18,7 @@ export const fetchRocketApi = createAsyncThunk(
     const rocketArray = [];
 
     data.forEach((rocket) => {
-      let {
+      const {
         rocket_id,
         flickr_images: { 0: img },
         rocket_name,
@@ -31,15 +33,15 @@ export const fetchRocketApi = createAsyncThunk(
       rocketArray.push(newRocket);
     });
     return rocketArray;
-  }
+  },
 );
 
 export const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
-    reserveRocket: (state, action) => {},
-    cancelRocket: (state, action) => {},
+    // reserveRocket: (state, action) => {},
+    // cancelRocket: (state, action) => {},
   },
 
   // extraReducers take care of the three states of promises i.e pending, fulfilled and rejected.
