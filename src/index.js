@@ -5,6 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './Redux/configureStore';
+
 import { fetchRocketApi } from './Redux/rocketSlice';
 
 //We use store.dispatch over here to call the async function to fetch api data when app loads
