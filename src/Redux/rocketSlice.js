@@ -4,6 +4,8 @@ const ROCKET_URL = 'https://api.spacexdata.com/v3/rockets';
 
 const initialState = {
   rockets: [],
+  status: 'idle',
+  error: null,
 };
 
 export const fetchRocketApi = createAsyncThunk(
@@ -39,4 +41,25 @@ export const rocketSlice = createSlice({
     reserveRocket: (state, action) => {},
     cancelRocket: (state, action) => {},
   },
+
+  // extraReducers take care of the three states of promises i.e pending, fulfilled and rejected.
+
+  extraReducers(builder) {
+    builder
+      .addCase(fetchRocketApi.pending, (state) => {
+        state.status = 'loading';
+      })
+      .addCase(fetchRocketApi.fulfilled, (state, action) => {
+        state.status = 'succeeded';
+        state.rockets = [...action.payload];
+      })
+      .addCase(fetchRocketApi.rejected, (state, action) => {
+        state.status = 'failed';
+        state.error = action.error.message;
+      });
+  },
 });
+
+export const { reserveRocket, cancelRocket } = rocketSlice.actions;
+
+export default rocketSlice.reducer;
