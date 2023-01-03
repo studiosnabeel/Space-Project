@@ -6,7 +6,7 @@ import PlanetLogo from '../Assets/planet.png'
 const Header = () => {
 	return (
 		
-			<header className=' flex justify-between items-center p-2 px-6 md:px-12 m-auto'>
+			<header className=' flex justify-between items-center p-2 px-6 py-4 md:px-12 m-auto border-b-2 '>
 			
 				<div className='flex justify-between items-center m-auto md:m-0'>
 					 <img className='w-14 h-14' src={PlanetLogo} alt="Planet Logo" /> 
