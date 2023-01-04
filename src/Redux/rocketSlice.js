@@ -29,19 +29,26 @@ export const fetchRocketApi = createAsyncThunk(
         image: img,
         title: rocket_name,
         desc: description,
+        reserved: false,
       };
       rocketArray.push(newRocket);
     });
     return rocketArray;
-  },
+  }
 );
 
 export const rocketSlice = createSlice({
   name: 'rockets',
   initialState,
   reducers: {
-    // reserveRocket: (state, action) => {},
-    // cancelRocket: (state, action) => {},
+    toggleReserved: (state, action) => {
+      const rocket = state.rockets.find(
+        (rocket) => rocket.id === action.payload
+      );
+      if (rocket) {
+        rocket.reserved = !rocket.reserved;
+      }
+    },
   },
 
   // extraReducers take care of the three states of promises i.e pending, fulfilled and rejected.
@@ -64,6 +71,6 @@ export const rocketSlice = createSlice({
 
 export const selectRockets = (state) => state.rockets.rockets;
 
-export const { reserveRocket, cancelRocket } = rocketSlice.actions;
+export const { toggleReserved } = rocketSlice.actions;
 
 export default rocketSlice.reducer;
