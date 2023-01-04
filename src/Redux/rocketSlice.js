@@ -34,7 +34,7 @@ export const fetchRocketApi = createAsyncThunk(
       rocketArray.push(newRocket);
     });
     return rocketArray;
-  }
+  },
 );
 
 export const rocketSlice = createSlice({
@@ -43,7 +43,7 @@ export const rocketSlice = createSlice({
   reducers: {
     toggleReserved: (state, action) => {
       const rocket = state.rockets.find(
-        (rocket) => rocket.id === action.payload
+        (rocket) => rocket.id === action.payload,
       );
       if (rocket) {
         rocket.reserved = !rocket.reserved;
