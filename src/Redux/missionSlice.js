@@ -11,27 +11,26 @@ const initialState = {
 
 const MISSIONS_API_URL = 'https://api.spacexdata.com/v3/missions';
 
-export const getMissionsData = createAsyncThunk('missions/getMissionsData', async () => {
-  const res = await fetch(MISSIONS_API_URL);
-  const data = await res.json();
-  const newMissionsArray = [];
+export const getMissionsData = createAsyncThunk(
+  'missions/getMissionsData',
+  async () => {
+    const res = await fetch(MISSIONS_API_URL);
+    const data = await res.json();
+    const newMissionsArray = [];
 
-  data.forEach((mission) => {
-    const {
-      mission_id,
-      mission_name,
-      description,
-    } = mission;
-    const newMission = {
-      id: mission_id,
-      title: mission_name,
-      desc: description,
-    };
-    newMissionsArray.push(newMission);
-  });
-  console.log(newMissionsArray);
-  return newMissionsArray;
-});
+    data.forEach((mission) => {
+      const { mission_id, mission_name, description } = mission;
+      const newMission = {
+        id: mission_id,
+        title: mission_name,
+        desc: description,
+      };
+      newMissionsArray.push(newMission);
+    });
+    // console.log(newMissionsArray);
+    return newMissionsArray;
+  },
+);
 
 const missionSlice = createSlice({
   name: 'missions',
