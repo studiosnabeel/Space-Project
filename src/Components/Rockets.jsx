@@ -3,9 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleReserved } from '../Redux/rocketSlice';
 
-const Rockets = ({
-  id, image, title, desc,
-}) => {
+const Rockets = ({ reserved, id, image, title, desc }) => {
   const dispatch = useDispatch();
   const reserveBtnClick = () => {
     dispatch(toggleReserved(id));
@@ -21,13 +19,27 @@ const Rockets = ({
       </div>
       <div className=" mx-2">
         <h3 className="font-bold text-lg">{title}</h3>
-        <p>{desc}</p>
+        <p>
+          {reserved && (
+            <span
+              className="
+            rounded bg-sky-400 text-center px-2 mr-2 text-white"
+            >
+              reserved
+            </span>
+          )}
+          {desc}
+        </p>
         <button
           onClick={reserveBtnClick}
           type="button"
-          className="bg-[#007bff] text-white px-3 py-1.5 rounded mt-2 "
+          className={
+            reserved
+              ? 'drop-shadow-md border-2 border-slate-400 px-3 text-slate-800 py-1.5 rounded mt-2'
+              : 'bg-[#007bff] text-white px-3 py-1.5 rounded mt-2 '
+          }
         >
-          Reserve rocket
+          {reserved ? 'Cancel Reservation' : 'Reserve rocket'}
         </button>
       </div>
     </div>
