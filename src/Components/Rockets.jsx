@@ -9,12 +9,12 @@ const Rockets = ({ image, title, desc }) => (
         alt="picture1"
       />
     </div>
-    <div className=" mt-1.5 mx-2">
+    <div className=" mx-2">
       <h3 className="font-bold text-lg">{title}</h3>
       <p>{desc}</p>
       <button
         type="button"
-        className="bg-[#007bff] text-white px-3 py-1.5 rounded mt-2"
+        className="bg-[#007bff] text-white px-3 py-1.5 rounded mt-2 "
       >
         Reserve rocket
       </button>
