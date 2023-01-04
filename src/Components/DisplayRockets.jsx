@@ -9,6 +9,7 @@ const DisplayRockets = () => {
     <div>
       <div>
         {rockets.map((rocket) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
           <Rockets key={rocket.id} {...rocket} />
         ))}
       </div>
