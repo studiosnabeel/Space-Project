@@ -4,7 +4,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   missions: [],
-
   status: 'idle',
   error: null,
 };
@@ -19,7 +18,11 @@ export const getMissionsData = createAsyncThunk(
     const newMissionsArray = [];
 
     data.forEach((mission) => {
-      const { mission_id, mission_name, description } = mission;
+      const {
+        mission_id,
+        mission_name,
+        description,
+      } = mission;
       const newMission = {
         id: mission_id,
         title: mission_name,
@@ -27,7 +30,6 @@ export const getMissionsData = createAsyncThunk(
       };
       newMissionsArray.push(newMission);
     });
-    // console.log(newMissionsArray);
     return newMissionsArray;
   },
 );
