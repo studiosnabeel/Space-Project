@@ -3,9 +3,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleReserved } from '../Redux/rocketSlice';
 
-const Rockets = ({
-  id, image, title, desc,
-}) => {
+const Rockets = ({ id, image, title, desc }) => {
   const dispatch = useDispatch();
   const reserveBtnClick = () => {
     dispatch(toggleReserved(id));
