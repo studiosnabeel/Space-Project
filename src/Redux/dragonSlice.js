@@ -73,6 +73,6 @@ export const dragonSlice = createSlice({
 
 export const selectDragons = (state) => state.dragons.dragons;
 
-export const {toggleReserved } = dragonSlice.actions;
+export const { toggleReserved } = dragonSlice.actions;
 
 export default dragonSlice.reducer;
