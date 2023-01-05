@@ -27,6 +27,7 @@ export const getMissionsData = createAsyncThunk(
         id: mission_id,
         title: mission_name,
         desc: description,
+        reserved: false,
       };
       newMissionsArray.push(newMission);
     });
@@ -34,16 +35,18 @@ export const getMissionsData = createAsyncThunk(
   },
 );
 
-const missionSlice = createSlice({
+export const missionSlice = createSlice({
   name: 'missions',
   initialState,
   reducers: {
-    // joinMission(action, state) {
-    //   console.log(action, state);
-    // },
-    // leaveMission(action, state) {
-    //   console.log(action, state);
-    // },
+    toggleMissionReserved: (state, action) => {
+      const mission = state.missions.find(
+        (mission) => mission.id === action.payload,
+      );
+      if (mission) {
+        mission.reserved = !mission.reserved;
+      }
+    },
   },
 
   extraReducers(builder) {
@@ -62,5 +65,5 @@ const missionSlice = createSlice({
   },
 });
 
-export const { joinMission, leaveMission } = missionSlice.actions;
+export const { toggleMissionReserved } = missionSlice.actions;
 export default missionSlice.reducer;
