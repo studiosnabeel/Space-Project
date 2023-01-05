@@ -59,9 +59,10 @@ const Missions = ({ mission }) => {
 Missions.defaultProps = { mission: null };
 Missions.propTypes = {
   mission: PropTypes.shape({
-    mission_id: PropTypes.string,
-    mission_name: PropTypes.string,
-    description: PropTypes.string,
+    id: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    reserved: PropTypes.bool,
   }),
 };
 
