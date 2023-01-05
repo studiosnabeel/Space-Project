@@ -65,5 +65,9 @@ export const missionSlice = createSlice({
   },
 });
 
+export const selectReserveMissions = (state) => state.missions.missions.filter(
+  (mission) => mission.reserved === true,
+);
+
 export const { toggleMissionReserved } = missionSlice.actions;
 export default missionSlice.reducer;
