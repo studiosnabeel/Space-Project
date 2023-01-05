@@ -4,14 +4,14 @@ import { useDispatch } from 'react-redux';
 import { toggleMissionReserved } from '../../Redux/missionSlice';
 
 const Missions = ({ mission }) => {
-  const disptach = useDispatch();
+  const dispatch = useDispatch();
 
   const handleJoiningMissions = (id) => {
-    disptach(toggleMissionReserved(id));
+    dispatch(toggleMissionReserved(id));
   };
 
   const handleLeavingMissions = (id) => {
-    disptach(toggleMissionReserved(id));
+    dispatch(toggleMissionReserved(id));
   };
 
   return (
