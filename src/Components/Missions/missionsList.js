@@ -34,6 +34,12 @@ const MissionsList = ({ missions }) => (
 );
 
 MissionsList.defaultProps = { missions: null };
-MissionsList.propTypes = { missions: PropTypes.string };
+MissionsList.propTypes = {
+  missions: PropTypes.arrayOf(PropTypes.shape({
+    mission_id: PropTypes.string,
+    mission_name: PropTypes.string,
+    description: PropTypes.string,
+  })),
+};
 
 export default MissionsList;

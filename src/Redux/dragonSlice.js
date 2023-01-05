@@ -19,14 +19,14 @@ export const fetchDragonApi = createAsyncThunk(
 
     data.forEach((dragon) => {
       const {
-        dragon_id,
+        id,
         flickr_images: { 0: img },
         dragon_name,
         type,
         description,
       } = dragon;
       const newDragon = {
-        id: dragon_id,
+        id,
         image: img,
         title: dragon_name,
         type,
@@ -44,7 +44,7 @@ export const dragonSlice = createSlice({
   initialState,
   reducers: {
     toggleReserved: (state, action) => {
-      const dragon = state.dragon.find(
+      const dragon = state.dragons.find(
         (dragon) => dragon.id === action.payload,
       );
       if (dragon) {
