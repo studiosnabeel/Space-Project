@@ -22,13 +22,13 @@ export const fetchRocketApi = createAsyncThunk(
         rocket_id,
         flickr_images: { 0: img },
         rocket_name,
-        description,
+        type,
       } = rocket;
       const newRocket = {
         id: rocket_id,
         image: img,
         title: rocket_name,
-        desc: description,
+        type,
         reserved: false,
       };
       rocketArray.push(newRocket);
@@ -42,7 +42,6 @@ export const rocketSlice = createSlice({
   initialState,
   reducers: {
     toggleReserved: (state, action) => {
-      console.log(state);
       const rocket = state.rockets.find(
         (rocket) => rocket.id === action.payload,
       );
