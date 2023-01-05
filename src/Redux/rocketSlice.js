@@ -42,7 +42,7 @@ export const rocketSlice = createSlice({
   initialState,
   reducers: {
     toggleReserved: (state, action) => {
-      console.log(state)
+      console.log(state);
       const rocket = state.rockets.find(
         (rocket) => rocket.id === action.payload,
       );
