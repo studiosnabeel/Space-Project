@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import Rockets from './Rockets';
-import { selectRockets } from '../Redux/rocketSlice';
+import { selectRockets } from '../../Redux/rocketSlice';
 
 const DisplayRockets = () => {
   const rockets = useSelector(selectRockets);

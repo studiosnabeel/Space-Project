@@ -10,8 +10,8 @@ const initialState = {
   error: null,
 };
 
-export const fetchdragonApi = createAsyncThunk(
-  'dragons/fetchdragonsApi',
+export const fetchDragonApi = createAsyncThunk(
+  'dragons/fetchDragonsApi',
   async () => {
     const response = await fetch(DRAGON_URL);
     const data = await response.json();
@@ -22,15 +22,17 @@ export const fetchdragonApi = createAsyncThunk(
         dragon_id,
         flickr_images: { 0: img },
         dragon_name,
+        type,
         description,
       } = dragon;
-      const newdragon = {
+      const newDragon = {
         id: dragon_id,
         image: img,
         title: dragon_name,
+        type,
         desc: description,
       };
-      dragonArray.push(newdragon);
+      dragonArray.push(newDragon);
     });
     return dragonArray;
   },
@@ -40,28 +42,30 @@ export const dragonSlice = createSlice({
   name: 'dragons',
   initialState,
   reducers: {
-    // reservedragon: (state, action) => {},
-    // canceldragon: (state, action) => {},
+    // reserveDragon: (state, action) => {},
+    // cancelDragon: (state, action) => {},
   },
 
   // extraReducers take care of the three states of promises i.e pending, fulfilled and rejected.
 
   extraReducers(builder) {
     builder
-      .addCase(fetchdragonApi.pending, (state) => {
+      .addCase(fetchDragonApi.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchdragonApi.fulfilled, (state, action) => {
+      .addCase(fetchDragonApi.fulfilled, (state, action) => {
         state.status = 'succeeded';
         state.dragons = [...action.payload];
       })
-      .addCase(fetchdragonApi.rejected, (state, action) => {
+      .addCase(fetchDragonApi.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       });
   },
 });
 
-export const { reservedragon, canceldragon } = dragonSlice.actions;
+export const selectDragons = (state) => state.dragons.dragons;
+
+export const { reserveDragon, cancelDragon } = dragonSlice.actions;
 
 export default dragonSlice.reducer;
