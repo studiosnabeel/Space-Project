@@ -22,13 +22,13 @@ export const fetchRocketApi = createAsyncThunk(
         rocket_id,
         flickr_images: { 0: img },
         rocket_name,
-        type,
+        description,
       } = rocket;
       const newRocket = {
         id: rocket_id,
         image: img,
         title: rocket_name,
-        type,
+        desc: description,
         reserved: false,
       };
       rocketArray.push(newRocket);
