@@ -31,6 +31,7 @@ export const fetchDragonApi = createAsyncThunk(
         title: dragon_name,
         type,
         desc: description,
+        reserved: false,
       };
       dragonArray.push(newDragon);
     });
@@ -42,8 +43,14 @@ export const dragonSlice = createSlice({
   name: 'dragons',
   initialState,
   reducers: {
-    // reserveDragon: (state, action) => {},
-    // cancelDragon: (state, action) => {},
+    toggleReserved: (state, action) => {
+      const dragon = state.dragon.find(
+        (dragon) => dragon.id === action.payload,
+      );
+      if (dragon) {
+        dragon.reserved = !dragon.reserved;
+      }
+    },
   },
 
   // extraReducers take care of the three states of promises i.e pending, fulfilled and rejected.
@@ -66,6 +73,6 @@ export const dragonSlice = createSlice({
 
 export const selectDragons = (state) => state.dragons.dragons;
 
-export const { reserveDragon, cancelDragon } = dragonSlice.actions;
+export const { toggleReserved } = dragonSlice.actions;
 
 export default dragonSlice.reducer;
