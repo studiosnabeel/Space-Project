@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleReserved } from '../Redux/rocketSlice';
+import { toggleReserved } from '../../Redux/rocketSlice';
 
 const Rockets = ({
   reserved, id, image, title, desc,
