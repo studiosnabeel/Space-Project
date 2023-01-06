@@ -1,11 +1,13 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { toggleReserved } from '../../Redux/rocketSlice';
 
-const Rockets = ({
-  reserved, id, image, title, desc,
-}) => {
+const Rockets = ({ rocket }) => {
+  const {
+    reserved, id, image, title, desc,
+  } = rocket;
+
   const dispatch = useDispatch();
   const reserveBtnClick = () => {
     dispatch(toggleReserved(id));
@@ -46,6 +48,17 @@ const Rockets = ({
       </div>
     </div>
   );
+};
+
+Rockets.defaultProps = { rocket: null };
+Rockets.propTypes = {
+  rocket: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    reserved: PropTypes.bool,
+    image: PropTypes.string,
+  }),
 };
 
 export default Rockets;
