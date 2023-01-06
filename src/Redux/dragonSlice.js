@@ -73,8 +73,9 @@ export const dragonSlice = createSlice({
 
 export const selectDragons = (state) => state.dragons.dragons;
 
-// eslint-disable-next-line max-len
-export const selectReserveDragons = (state) => state.dragons.dragons.filter((dragon) => dragon.reserved === true);
+export const selectReserveDragons = (state) => state.dragons.dragons.filter(
+  (dragon) => dragon.reserved === true,
+);
 
 export const { toggleReserved } = dragonSlice.actions;
 
