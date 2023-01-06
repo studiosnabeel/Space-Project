@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from '../Components/Header';
 
-describe('Test header', () => {
+describe('Test Rocket', () => {
   test('should Test header component', () => {
     const tree = render(
       <BrowserRouter>

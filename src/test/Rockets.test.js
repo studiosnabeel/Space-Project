@@ -1,22 +1,15 @@
 import { render } from '@testing-library/react';
-import { useSelector } from 'react-redux';
-import Rockets from '../Components/Rockets/Rockets';
+import { Provider } from 'react-redux';
+import DisplayRockets from '../Components/Rockets/DisplayRockets';
+import store from '../redux/configureStore';
 
-jest.mock('react-redux');
-
-describe('Rockets test', () => {
-  test('should test rocket component', () => {
-    useSelector.mockReturnValue([
-      {
-        id: '123',
-        flicker_images:
-          'https://imgur.com/DaCfMsj.jpg,https://imgur.com/azYafd8.jpg',
-        rocket_name: 'Falcon 1',
-        description: 'Test',
-        reserved: !true,
-      },
-    ]);
-    const tree = render(<Rockets />);
+describe('Test Rocket', () => {
+  test('should Test Rocket component', () => {
+    const tree = render(
+      <Provider store={store}>
+        <DisplayRockets />
+      </Provider>,
+    );
     expect(tree).toMatchSnapshot();
   });
 });

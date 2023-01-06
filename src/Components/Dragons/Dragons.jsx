@@ -5,7 +5,7 @@ import { toggleReserved } from '../../Redux/dragonSlice';
 
 const Dragons = ({ dragon }) => {
   const {
-    id, image, title, desc, reserved,
+    image, id, title, desc, reserved,
   } = dragon;
   const dispatch = useDispatch();
 
