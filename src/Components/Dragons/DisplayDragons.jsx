@@ -10,7 +10,7 @@ const DisplayDragons = () => {
     if (dragons.length === 0) {
       dispatch(fetchDragonApi());
     }
-  }, [dispatch]);
+  }, [dispatch, dragons.length]);
 
   return (
     <div>
