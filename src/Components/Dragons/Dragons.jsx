@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import { toggleReserved } from '../../Redux/dragonSlice';
 
-/* eslint-disable react/prop-types */
-const Dragons = ({
-  id, image, title, desc, reserved,
-}) => {
+const Dragons = ({ dragon }) => {
+  const {
+    id, image, title, desc, reserved,
+  } = dragon;
   const dispatch = useDispatch();
 
   const reserveBtnClick = () => {
@@ -47,6 +48,17 @@ const Dragons = ({
       </div>
     </div>
   );
+};
+
+Dragons.defaultProps = { dragon: null };
+Dragons.propTypes = {
+  dragon: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    desc: PropTypes.string,
+    reserved: PropTypes.bool,
+    image: PropTypes.string,
+  }),
 };
 
 export default Dragons;
