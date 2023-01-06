@@ -69,8 +69,9 @@ export const rocketSlice = createSlice({
   },
 });
 
-// eslint-disable-next-line max-len
-export const selectReserveRockets = (state) => state.rockets.rockets.filter((rocket) => rocket.reserved === true);
+export const selectReserveRockets = (state) => state.rockets.rockets.filter(
+  (rocket) => rocket.reserved === true,
+);
 
 export const selectRockets = (state) => state.rockets.rockets;
 
