@@ -21,14 +21,14 @@ export const fetchDragonApi = createAsyncThunk(
       const {
         id,
         flickr_images: { 0: img },
-        dragon_name,
+        name,
         type,
         description,
       } = dragon;
       const newDragon = {
         id,
         image: img,
-        title: dragon_name,
+        title: name,
         type,
         desc: description,
         reserved: false,
@@ -72,6 +72,9 @@ export const dragonSlice = createSlice({
 });
 
 export const selectDragons = (state) => state.dragons.dragons;
+
+// eslint-disable-next-line max-len
+export const selectReserveDragons = (state) => state.dragons.dragons.filter((dragon) => dragon.reserved === true);
 
 export const { toggleReserved } = dragonSlice.actions;
 
