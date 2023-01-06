@@ -11,7 +11,7 @@ const MissionsPage = () => {
     if (missions.missions.length === 0) {
       dispatch(getMissionsData());
     }
-  }, [dispatch]);
+  }, [dispatch], missions.missions.length);
 
   return (
     missions.status === 'loading' ? <h2>Loading</h2> : <MissionsList missions={missions.missions} />
