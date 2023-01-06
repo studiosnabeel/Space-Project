@@ -8,7 +8,9 @@ const MissionsPage = () => {
   const missions = useSelector((state) => state.missions);
 
   useEffect(() => {
-    dispatch(getMissionsData());
+    if (missions.missions.length === 0) {
+      dispatch(getMissionsData());
+    }
   }, [dispatch]);
 
   return (
