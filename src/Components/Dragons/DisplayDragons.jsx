@@ -16,8 +16,7 @@ const DisplayDragons = () => {
     <div>
       <div>
         {dragons.map((dragon) => (
-          // eslint-disable-next-line react/jsx-props-no-spreading
-          <Dragons key={dragon.id} {...dragon} />
+          <Dragons key={dragon.id} dragon={dragon} />
         ))}
       </div>
     </div>
