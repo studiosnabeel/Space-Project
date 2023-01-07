@@ -16,16 +16,16 @@ const Missions = ({ mission }) => {
 
   return (
     <>
-      <tr className="bg-gray-100 border-b even:bg-gray-50">
+      <tr className="bg-gray-100 border-b even:bg-gray-50 odd:bg-red-50">
         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{mission.title}</td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-wrap">
           {mission.desc}
         </td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
           {mission.reserved ? (
-            <p className="bg-[#18a2b8] text-white rounded w-fit px-1">Active member</p>
+            <p className="bg-[#18a2b8] text-white rounded w-fit px-1">Active Member</p>
           ) : (
-            <p className="bg-neutral-700 text-white rounded w-fit px-1">Not a member</p>
+            <p className="bg-neutral-700 text-white rounded w-fit px-1">Not a Member</p>
           )}
         </td>
         <td className="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
