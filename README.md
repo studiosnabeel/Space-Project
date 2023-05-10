@@ -26,7 +26,7 @@
 
 # 📖 Space Project <a name="about-project"></a>
 
-> A platform where people can reserve rockets/dragons and join missions to space. 
+> The Space-Project repository contains the source code for https://rocketmissions.netlify.app/. It retrieves data on various space missions from an API. The website presents this information interactively and intuitively, allowing users to filter mission by launch status, mission name, and year. Detailed information on each mission, including its launch date, rocket type, and destination, is readily available. The website is fully responsive and optimized for desktop and mobile devices. We appreciate your feedback and welcome any suggestions. Don't hesitate to create an issue or submit a pull request.
 
 ## 🛠 Built With <a name="built-with"></a>
 
